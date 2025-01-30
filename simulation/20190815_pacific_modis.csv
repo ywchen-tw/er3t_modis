@@ -1,0 +1,62 @@
+descriptor,Central_Asia,,,,,,
+,,,,,,,
+satID,aqua,,,,,,
+date,20190815,,,,,,
+juld,227,,,,,,# Julian Day
+,,,,,,,
+domain info,,,,,,,
+png,aqua_rgb_2019-08-15_135.30-136.10-2.90-3.70.png,,,,,,# PNG file
+pngwesn,135.4,136.0,3.0,3.6,,,# PNG file extent
+subdomain,135.4,136.0,3.0,3.6,,,# sub-domain to zoom into (this is processed by the OCO simulator)
+,,,,,,,
+data files,,,,,,,# all V10r data
+path_sat_data,../sat_data,,,,,,"# Note that I used V8r for most data files (for heritage reasons), except for the Lite file (V10)"
+l2,oco2_L2StdND_22850a_181018_B10004r_200520201845.h5,,,,,,# L2 file https://oco2.gesdisc.eosdis.nasa.gov/data/OCO2_DATA/OCO2_L2_Standard.10r
+lt,oco2_LtCO2_181018_B10206Ar_200730042453s.nc4,,,,,,# lite file https://oco2.gesdisc.eosdis.nasa.gov/data/OCO2_DATA/OCO2_L2_Lite_FP.10r
+l1b,oco2_L1bScND_22850a_181018_B10003r_200409205805.h5,,,,,,# L1B file https://oco2.gesdisc.eosdis.nasa.gov/data/OCO2_DATA/OCO2_L1B_Science.10r
+dia,oco2_L2DiaND_22850a_181018_B10004r_200520194946.h5,,,,,,# diagnostic file https://oco2.gesdisc.eosdis.nasa.gov/data/OCO2_DATA/OCO2_L2_Diagnostic.10r
+met,oco2_L2MetND_22850a_181018_B10003r_200409205805.h5,,,,,,# MET file https://oco2.gesdisc.eosdis.nasa.gov/data/OCO2_DATA/OCO2_L2_Met.10r
+imap,oco2_L2IDPND_22850a_181018_B10003r_200412061944.h5,,,,,,
+co2prior,oco2_L2CPrND_22850a_181018_B10003r_200410025041.h5,,,,,,
+sol,solar.txt,,,,,,# Location of solar file
+,,,,,,,
+# zpt setting,,,,,,,
+o2mix,0.20935,,,,,,# o2 dry-air mixing ratio
+,,,,,,,
+# absorption information,,,,,,,
+footprint,1,,,,,,# 1 to 8
+ils_min,0.05,,,,,,# minimum relative ils weight for calculating absorbance
+nx,10,,,,,,# number of transmittance interval
+Trn_min,0.4,,,,,,# minimum transmittance for selecting the wavelength
+abs_interpolation,trilinear,,,,,,"# single, linear, or trilinear"
+g_mode,FALSE,,,,,,# TRUE or FALSE
+,,,,,,,
+# aerosol setting,,,,,,,
+_aerosol,FALSE,,,,,,# TRUE or FALSE
+asy,0.6,,,,,,# aerosol asymmetry parameter
+,,,,,,,
+# cot-ref relationship,,,,,,,
+cth_thick,10,,,,,,# clout top height for thick clouds (km)
+cgt_thick,7,,,,,,# clout geometric thickness for thick clouds (km)
+cth_thin,3,,,,,,# clout top height for thin clouds (km)
+cgt_thin,1,,,,,,# clout geometric thickness for thin clouds (km)
+cot_Nphotons,1.00E+06,,,,,,# number photons used for COT-Ref relationship
+,,,,,,,
+# cloud setting,,,,,,,
+cgt_low,,,,,,,
+cbt_high,,,,,,,
+,,,,,,,
+# output information,,,,,,,
+path_out,/Users/schmidt/rtm/er3toco/oco/,,,,,,
+o2,data_all_20181018_o2a_6170_6209_sfc_alb_0.288_sza_48.5.h5,,,,,,#data_all_20181018_o2a_6170_6209_sfc_alb_0.288_sza_48.5.h5
+wco2,data_all_20181018_wco2_6170_6209_sfc_alb_0.376_sza_48.5.h5,,,,,,
+sco2,data_all_20181018_sco2_6170_6209_sfc_alb_0.357_sza_48.5.h5,,,,,,
+,,,,,,,
+# full physics retrieval information,,,,,,,
+retrieval,B10.04,,,,,,# python that is used for retrieval sub-process
+,,,,,,,
+# simulation parameters,,,,,,,
+ref_threshold,0.05,,,,,,
+modis_650_N_photons,1.00E+08,,,,,,
+oco_N_photons,1.00E+09,,,,,,
+Ncpu,16,,,,,,
