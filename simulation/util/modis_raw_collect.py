@@ -114,16 +114,6 @@ def cdata_sat_raw(sat0, dx, dy, overwrite=False, plot=True):
                    'ref_2130': vars()[f'ref_2d_2130_inter'], 'rad_2130': vars()[f'rad_2d_2130_inter']})
 
         print('Message [cdata_sat_raw]: the processing of MODIS L1B radiance/reflectance at 470, 555, 1640, 2130 nm is complete.')
-
-        plt.clf()
-        fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 6))
-        c1 = ax1.imshow(vars()[f'ref_2d_1640_inter'], origin='lower')
-        ax1.set_title('MODIS L1B Reflectance at 1640 nm')
-        fig.colorbar(c1, ax=ax1)
-        c2 = ax2.imshow(vars()[f'rad_2d_1640_inter'], origin='lower')
-        ax2.set_title('MODIS L1B Radiance at 1640 nm')
-        fig.colorbar(c2, ax=ax2)
-        plt.show()
         
         # Save longitude and latitude to HDF group
         f0.update({'lon': lon_2d, 'lat': lat_2d})
@@ -218,7 +208,7 @@ def cdata_sat_raw(sat0, dx, dy, overwrite=False, plot=True):
                         vnames=['Deep_Blue_Spectral_Single_Scattering_Albedo_Land', ])
         AOD_lon, AOD_lat, AOD_550_land = grid_by_dxdy(mcd04.data['lon']['data'], mcd04.data['lat']['data'], mcd04.data['AOD_550_land']['data'], **grid_by_dxdy_nearest_args)
         _, _, Angstrom_Exponent_land = grid_by_dxdy(mcd04.data['lon']['data'], mcd04.data['lat']['data'], mcd04.data['Angstrom_Exponent_land']['data'], **grid_by_dxdy_nearest_args)
-        _, _, SSA_land_660 = grid_by_dxdy(mcd04.data['lon']['data'], mcd04.data['lat']['data'], mcd04.data['SSA_land']['data'][2, :], **grid_by_dxdy_nearest_args)
+        _, _, SSA_land_660 = grid_by_dxdy(mcd04.data['lon']['data'], mcd04.data['lat']['data'], mcd04.data['SSA_land_660']['data'], **grid_by_dxdy_nearest_args)
 
         _, _, AOD_550_land_grid = grid_by_dxdy(mcd04.data['lon']['data'], mcd04.data['lat']['data'], mcd04.data['AOD_550_land']['data'], **grid_by_dxdy_linear_args)
         #_, _, aerosol_type_land = grid_by_dxdy(mcd04.data['lon']['data'], mcd04.data['lat']['data'], mcd04.data['aerosol_type_land']['data'], **grid_by_dxdy_nearest_args)

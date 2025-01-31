@@ -178,7 +178,7 @@ class cld_sat:
             dx = cal_geodesic_dist(
                     self.sat.data['lon_2d']['data'][:-1, :], self.sat.data['lat_2d']['data'][:-1, :], \
                     self.sat.data['lon_2d']['data'][1:, :] , self.sat.data['lat_2d']['data'][1:, :]   \
-                    ).mean()
+                    ).mean()/1000
         else:
             dx = self.sat.data['dx']['data']
 
@@ -186,7 +186,7 @@ class cld_sat:
             dy = cal_geodesic_dist(
                     self.sat.data['lon_2d']['data'][:, :-1], self.sat.data['lat_2d']['data'][:, :-1], \
                     self.sat.data['lon_2d']['data'][:, 1:] , self.sat.data['lat_2d']['data'][:, 1:]   \
-                    ).mean()
+                    ).mean()/1000
         else:
             dy = self.sat.data['dy']['data']
 
@@ -200,8 +200,8 @@ class cld_sat:
         self.lay['y']  = {'data':y_1d     , 'name':'Y'          , 'units':'km'}
         self.lay['nx'] = {'data':Nx       , 'name':'Nx'         , 'units':'N/A'}
         self.lay['ny'] = {'data':Ny       , 'name':'Ny'         , 'units':'N/A'}
-        self.lay['dx'] = {'data':dx       , 'name':'dx'         , 'units':'m'}
-        self.lay['dy'] = {'data':dy       , 'name':'dy'         , 'units':'m'}
+        self.lay['dx'] = {'data':dx       , 'name':'dx'         , 'units':'km'}
+        self.lay['dy'] = {'data':dy       , 'name':'dy'         , 'units':'km'}
         self.lay['altitude'] = copy.deepcopy(self.atm.lay['altitude'])
         self.lay['thickness']= copy.deepcopy(self.atm.lay['thickness'])
         self.lay['lon']      = copy.deepcopy(self.sat.data['lon_2d'])

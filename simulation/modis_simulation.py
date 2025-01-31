@@ -120,9 +120,9 @@ def run_case_modis(cfg_info, preprocess_info):
     # run calculations for 650 nm
     # ======================================================================
     fdir_tmp_650 = path_dir(f'tmp-data/{name_tag}/modis_650')
-    for solver in ['IPA',]:# '3D']:
+    for solver in ['IPA', '3D']:
         cal_modis_rad(sat0, zpt_file, 650, cfg_info, fdir=fdir_tmp_650, solver=solver,
-                        overwrite=True, case_name_tag=name_tag)
+                        overwrite=False, case_name_tag=name_tag)
         modis_simulation_plot(sat0, cfg_info, case_name_tag=name_tag, fdir=fdir_tmp_650,
                                    solver=solver, wvl=650, vmax=0.5, plot=True)
     # ======================================================================
@@ -159,7 +159,7 @@ def run_simulation(cfg, sfc_alb=None, sza=None):
 if __name__ == '__main__':
     
 
-    cfg = 'cfg/20190815_pacific_modis.csv'
+    cfg = 'cfg/20190815_pacific_modis_2.csv'
 
     print(cfg)
     run_simulation(cfg) #done

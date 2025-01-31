@@ -19,8 +19,8 @@ from er3t.rtm.mca import mca_sca
 
 from util.modis_atmmod import atm_atmmod
 # from er3t.pre.atm import atm_atmmod
-from simulation.util.util import sat_tmp
-from simulation.util.modis_cld_sat import cld_sat
+from util.util import sat_tmp
+from util.modis_cld_sat import cld_sat
 
 
 def ax_lonlat_setting(ax, label_size=16):
@@ -231,7 +231,9 @@ def modis_simulation_plot(sat, cfg_info, case_name_tag='default', fdir='tmp',
 
     # save data
     # ==================================================================================================
-    with h5py.File('data/%s/post-data_1640.h5' % case_name_tag, 'r+') as f:
+    post_file = f'data/%s/post-data_{wvl}.h5' % case_name_tag
+    write_status = 'w' if not os.path.exists(post_file) else 'a'
+    with h5py.File(post_file, write_status) as f:
         for key in ['wvl', 'lon', 'lat', 'extent', 'rad_obs', 'ref_obs', 'ref_threshold', 
                     f'rad_sim_{solver.lower()}', f'rad_sim_{solver.lower()}_std', f'ref_sim_{solver.lower()}']:
             if key in f.keys():
